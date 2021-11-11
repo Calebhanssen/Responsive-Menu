@@ -129,11 +129,11 @@ header ul {
 
 .panel .image-wrapper {
   order: -1;
-  flex: 0 1 40%;
+  flex: 0 1 30%;
 }
 
 .panel .text-wrapper {
-  flex: 1 0 60%;
+  flex: 1 0 30%;
 }
 
 .panel img {
@@ -298,3 +298,5 @@ footer {
     transform: scale(1);
   }
 }
+
+/* Responsive Menu */
