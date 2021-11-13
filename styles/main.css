@@ -86,16 +86,16 @@ body {
 }
 
 .menu-show svg line {
-  stroke: rgb(148, 123, 86);
+  stroke: #333;
   stroke-width: 5px;
 }
 
 .menu-show svg line:first-child {
-  transform: rotate(0deg);
+  transform: scale(100px);
 }
 
 .menu-show svg line:last-child {
-  transform: rotate(0 deg);
+  transform: scale(100px);
 }
 
 .main-menu nav {
