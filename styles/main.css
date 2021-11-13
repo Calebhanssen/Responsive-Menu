@@ -62,10 +62,10 @@ body {
 }
 
 .main-menu svg {
-  stroke: ivory;
+  stroke: #333;
   stroke-width: 4px;
   stroke-linecap: round;
-  padding: 12px;
+  padding: 8px;
 }
 
 .main-menu svg line {
