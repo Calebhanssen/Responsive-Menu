@@ -16,33 +16,52 @@
         rel="stylesheet">
     <title>Form</title>
     <meta name="description" content="hello">
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            document.querySelector(".menu-icon").addEventListener("click", () => {
+                document.querySelector(".main-menu").classList.toggle("menu-show");
+            });
+        });
+    </script>
 </head>
 
-<body class="form">
-
-    <header>
+<body class="body">
+    <header class="main-menu">
+        <div class="menu-icon">
+            <svg viewbox="0 0 60 60">
+                <line x1="5px" y1="30px" x2="55px" y2="30px" />
+                <line x1="5px" y1="30px" x2="55px" y2="30px" />
+                <line x1="15px" y1="30px" x2="45px" y2="30px" />
+                <line x1="15px" y1="30px" x2="45px" y2="30px" />
+                <line x1="5px" y1="30px" x2="55px" y2="30px" />
+            </svg>
+        </div>
         <nav>
+            <h2 class="hidden">Main Menu</h2>
             <ul>
-                <li><a href="../">Home</a></li>
-                <li><a href="../about/">About</a></li>
-                <li><a class="dead-link">Form</a></li>
+                <li><a class="dead-link">Home</a></li>
+                <li class="grow"><a href="about/">About</a></li>
+                <li class="grow"><a href="form/">Form</a></li>
             </ul>
         </nav>
-
-        <main>
     </header>
-    <h1>Form</h1>
-    <img src="../images/clothing.svg" alt="survey icon">
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias voluptatum soluta, et quasi voluptatibus, ad
-        amet, <a href="https://www.instagram.com/morgwyman/">My Instagram</a> cupiditate nesciunt vero
-        consequatur ullam totam
-        delectus quisquam laudantium iure
-        perspiciatis unde.</p>
-    <p>Dignissimos ut, reiciendis iusto sequi deserunt quaerat suscipit ullam nobis harum, dolor nisi amet nesciunt odit
-        ad enim necessitatibus eaque earum quo eligendi vitae vero magnam! Repellendus ut nemo fugiat.</p>
-    <p>Reiciendis asperiores minus enim magni illum, alias laudantium sapiente ab distinctio id cumque nostrum debitis,
-        tenetur natus repudiandae blanditiis quam, voluptatum dolorum! Nobis aliquam facere voluptates? Eum rerum minus
-        nobis?</p>
+    <main>
+        <h1>Form</h1>
+        <img src="../images/clothing.svg" alt="survey icon">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias voluptatum soluta, et quasi voluptatibus,
+            ad
+            amet, <a href="https://www.instagram.com/morgwyman/">My Instagram</a> cupiditate nesciunt vero
+            consequatur ullam totam
+            delectus quisquam laudantium iure
+            perspiciatis unde.</p>
+        <p>Dignissimos ut, reiciendis iusto sequi deserunt quaerat suscipit ullam nobis harum, dolor nisi amet nesciunt
+            odit
+            ad enim necessitatibus eaque earum quo eligendi vitae vero magnam! Repellendus ut nemo fugiat.</p>
+        <p>Reiciendis asperiores minus enim magni illum, alias laudantium sapiente ab distinctio id cumque nostrum
+            debitis,
+            tenetur natus repudiandae blanditiis quam, voluptatum dolorum! Nobis aliquam facere voluptates? Eum rerum
+            minus
+            nobis?</p>
     </main>
 </body>
 

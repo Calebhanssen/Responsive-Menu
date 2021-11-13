@@ -9,25 +9,45 @@
     <link href="https://fonts.googleapis.com/css?family=Lato|Muli:400,800,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/main.css">
     <title>About</title>
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            document.querySelector(".menu-icon").addEventListener("click", () => {
+                document.querySelector(".main-menu").classList.toggle("menu-show");
+            });
+        });
+    </script>
 </head>
 
-<body>
-    <header>
+<body class="body">
+    <header class="main-menu">
+        <div class="menu-icon">
+            <svg viewbox="0 0 60 60">
+                <line x1="5px" y1="30px" x2="55px" y2="30px" />
+                <line x1="5px" y1="30px" x2="55px" y2="30px" />
+                <line x1="15px" y1="30px" x2="45px" y2="30px" />
+                <line x1="15px" y1="30px" x2="45px" y2="30px" />
+                <line x1="5px" y1="30px" x2="55px" y2="30px" />
+            </svg>
+        </div>
         <nav>
+            <h2 class="hidden">Main Menu</h2>
             <ul>
-                <li><a href="../">Home</a></li>
-                <li><a class="dead-link">About</a></li>
-                <li><a href="../form/">Form</a></li>
+                <li><a class="dead-link">Home</a></li>
+                <li class="grow"><a href="about/">About</a></li>
+                <li class="grow"><a href="form/">Form</a></li>
             </ul>
         </nav>
     </header>
     <h1>About</h1>
-    <p> lakdjf a;lksdjf a;lsdkfj a;lskjf ;alskjdf ;alskdj f;laksj df;laksj df;lkaj s;ldkf ja;lsk fj;lkas jdlfkj ;lskj
+    <p> lakdjf a;lksdjf a;lsdkfj a;lskjf ;alskjdf ;alskdj f;laksj df;laksj df;lkaj s;ldkf ja;lsk fj;lkas jdlfkj
+        ;lskj
         ;laksj l al;ksdjf lkdj kd kdk dk a lkdjf ;alkj ;lkj ;lkj klj kj lakdjf a;lksdjf a;lsdkfj a;lskjf ;alskjdf
         ;alskdj f;laksj df;laksj df;lkaj s;ldkf ja;lsk fj;lkas jdlfkj ;lskj
-        ;laksj l al;ksdjf lkdj kd kdk dk a lkdjf ;alkj ;lkj ;lkj klj kjlakdjf a;lksdjf a;lsdkfj a;lskjf ;alskjdf ;alskdj
+        ;laksj l al;ksdjf lkdj kd kdk dk a lkdjf ;alkj ;lkj ;lkj klj kjlakdjf a;lksdjf a;lsdkfj a;lskjf ;alskjdf
+        ;alskdj
         f;laksj df;laksj df;lkaj s;ldkf ja;lsk fj;lkas jdlfkj ;lskj
-        ;laksj l al;ksdjf lkdj kd kdk dk a lkdjf ;alkj ;lkj ;lkj klj kjlakdjf a;lksdjf a;lsdkfj a;lskjf ;alskjdf ;alskdj
+        ;laksj l al;ksdjf lkdj kd kdk dk a lkdjf ;alkj ;lkj ;lkj klj kjlakdjf a;lksdjf a;lsdkfj a;lskjf ;alskjdf
+        ;alskdj
         f;laksj df;laksj df;lkaj s;ldkf ja;lsk fj;lkas jdlfkj ;lskj
         ;laksj l al;ksdjf lkdj kd kdk dk a lkdjf ;alkj ;lkj ;lkj klj kj;</p>
 </body>
