@@ -303,7 +303,6 @@ picture img {
   object-position: cover;
   max-height: 300px;
   width: auto;
-  margin-left: 2rem;
 }
 /* Card styles */
 .cards {
