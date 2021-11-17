@@ -2,6 +2,10 @@
   --text-color: #333;
   --floral-white: #f5f1e8;
   --roman-back: #333;
+
+  /* added this because it was referenced in hero overlay but didn't exist... */
+  --overlay-background-color: rgba(0, 0, 0, 0.3);
+  --medium-font-size: 1.5rem;
 }
 
 * {
@@ -13,13 +17,13 @@ p {
   line-height: 1.3;
 }
 
+a {
+  text-decoration: none;
+}
+
 img {
   width: 100%;
   display: block;
-}
-
-a {
-  text-decoration: none;
 }
 
 main {
@@ -196,8 +200,10 @@ picture img {
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* added this to center vertically */
   justify-content: center;
-  margin-top: 1rem;
+  /* this margin top is causing a gap between the overlay and top of the image */
+  /* margin-top: 1rem; */
   top: 0;
   left: 0;
   right: 0;
@@ -207,18 +213,107 @@ picture img {
 }
 
 .hero h1 {
-  font-size: 2rem;
+  /* added dynamic font - min width is 2rem, max width it 6rem, anything in between is
+     7% of the viewport width */
+  font-size: clamp(2rem, 7vw, 6rem);
   margin: 0;
-  text-shadow: 2px 2px 4px rgb(255, 255, 255);
+  text-shadow: 4px 4px 12px rgb(255, 255, 255);
 }
 
 .hero p {
-  color: var(--background-color);
-  font-size: 1rem;
-  font-style: italic;
-  text-shadow: 2px 2px 4px rgb(255, 255, 255);
+  /* increase the font size to make it more readable */
+  font-size: clamp(1rem, 4vw, 2rem);
+  /*  this line is referencing an undefined variable */
+  /* color: var(--background-color); */
+  /* I set the color to black for contrast */
+  color: rgb(255, 255, 255);
+  /* italic isn't very readable, especially with the text shadow */
+  /* font-style: italic; */
+  font-weight: bold;
+  /* reduced the text-shadow because it was blurry */
+  text-shadow: 1px 1px 1px rgb(255, 255, 255);
+}
+/* moved media query that was here to end of files. it was min-width: 501px */
+
+/* panel class for index */
+.panel {
+  display: flex;
+  flex-direction: column;
+  /* increase margin top for more whitespace */
+  margin-top: 6rem;
 }
 
+.panel .image-wrapper {
+  order: -1;
+  /* set aspect ratio of wrapper to aspect ratio of images */
+  aspect-ratio: 6 / 9;
+  /* flex: 0 1 35%;  don't need flex on column*/
+}
+
+/* .panel .text-wrapper { 
+  flex: 1 0 40%; don't need flex on column
+} */
+
+.panel img {
+  height: 100%;
+  /* don't need object-position or fit when aspect ratio of 
+     container matches aspect ratio of image */
+  /* object-position: cover; */
+  /* max-height: 300px; */
+  width: 100%;
+}
+
+/* Card styles */
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 6rem;
+}
+
+.card {
+  position: relative;
+  margin-right: 0.5rem;
+}
+
+.cards .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background-color: var(--overlay-background-color); */
+  /* i like the gradient better */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
+
+  /* to have the names not disappear, transition the background */
+  transition: background 300ms;
+}
+
+.cards p {
+  color: var(--background-color);
+  font-size: var(--medium-font-size);
+  text-align: center;
+  /* increased margin top  */
+  margin: 0.75rem 0.25rem 0;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgb(0, 0, 0);
+  font-weight: bolder;
+}
+
+.card:hover .overlay {
+  /* opacity: 0; */
+  background: transparent;
+}
+
+@media (min-width: 501px) {
+  /* don't need to redefine this - it was set above */
+  /* .cards .overlay {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.227), rgba(0, 0, 0, 0.5));
+  } */
+}
+
+/* this was in the middle of your CSS above. Moved it here. it was messing with overrides */
 @media (min-width: 501px) {
   main {
     margin: 0 1.5rem;
@@ -283,71 +378,6 @@ picture img {
     transform-origin: left;
   }
 }
-/* panel class for index */
-.panel {
-  display: flex;
-  flex-direction: column;
-  margin-top: 3rem;
-}
-
-.panel .image-wrapper {
-  order: -1;
-  flex: 0 1 35%;
-}
-
-.panel .text-wrapper {
-  flex: 1 0 40%;
-}
-
-.panel img {
-  height: 100%;
-  object-position: cover;
-  max-height: 300px;
-  width: 100%;
-  object-fit: cover;
-}
-/* Card styles */
-.cards {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-top: 6rem;
-}
-
-.card {
-  position: relative;
-  margin-right: 0.5rem;
-}
-
-.cards .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--overlay-background-color);
-  /* background-image: linear-gradient(rgba(0, 0, 0, 0.227), rgba(0, 0, 0, 0.5)); */
-  transition: opacity 300ms;
-}
-
-.cards p {
-  color: var(--background-color);
-  text-align: center;
-  margin: 0.25rem;
-  color: #fff;
-  text-shadow: 2px 2px 4px rgb(0, 0, 0);
-  font-weight: bolder;
-}
-
-.card:hover .overlay {
-  opacity: 0;
-}
-
-@media (min-width: 501px) {
-  .cards .overlay {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.227), rgba(0, 0, 0, 0.5));
-  }
-}
 
 @media (min-width: 700px) {
   .panel {
@@ -355,12 +385,43 @@ picture img {
     gap: 2rem;
   }
 
+  /* I increased the font size see not below on p. You can adjust to sizes you'd 
+     prefer.  */
   .panel h2 {
     margin: 0;
+    font-size: 2.5rem;
+  }
+
+  /* because I wanted to focus on the images, I increased the font size to 
+     reduce whitespace in the .text-wrapper */
+  .panel p {
+    font-size: 1.5rem;
   }
 
   .panel .left {
     order: -2;
+  }
+
+  /* on tablet, I set the flex-items to be equal widths - you can change it */
+  .panel .text-wrapper {
+    flex: 0 1 50%;
+  }
+
+  /* set an aspect ratio on the image-wrapper so it has the 
+     same aspect ratio of the images */
+  .panel .image-wrapper {
+    flex: 1 0 50%;
+    aspect-ratio: 6 / 9;
+  }
+
+  /* have the image fill the image-wrapper. you don't need object-fit 
+     because the .image-wrapper has the same aspect ratio as the image */
+  .panel img {
+    width: 100%;
+    height: 100%;
+
+    /* override a max-height set earlier */
+    max-height: none;
   }
 
   .cards {
@@ -376,6 +437,33 @@ picture img {
 @media (min-width: 900px) {
   .cards {
     flex-wrap: nowrap;
+  }
+  /**************************************************************
+    this will make your hero image full screen on laptop. You can 
+    adjust the vh if you don't want it full screen
+    **************************************************************/
+  .hero {
+    /* this subtracts the height of the menu (1rem padding top and bottom and
+       1rem font size from the vertical height of the
+       viewport. it's not 100% exact because it doesn't include line spacing, but 
+       it is good enough. Another option would be make the header on this 
+       page position: absolute, with top,left, and right set to 0 and a z-index of
+       1 -- but it will cover some of the top of the image */
+    height: calc(100vh - 3rem);
+    height: calc(80vh - 3rem);
+  }
+
+  /* size the image to 100% of .hero container and crop with object fit */
+  .hero img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* I thought the main needed a bit more with on laptop, so I gave the 
+     body on your main index.html a class .main-page */
+
+  .main-page main {
+    max-width: 60rem;
   }
 }
 
